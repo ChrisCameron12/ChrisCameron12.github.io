@@ -1,0 +1,28 @@
+module.exports = {
+  "extends": "stylelint-config-standard",
+  "plugins": ["stylelint-scss"],
+  "customSyntax": "postcss-scss",
+  "rules": {
+    "at-rule-no-vendor-prefix": null,
+    "function-url-quotes": null,
+    "keyframes-name-pattern": null,
+    "max-line-length": null,
+    "property-no-vendor-prefix": null,
+    "selector-no-vendor-prefix": null,
+    "string-quotes": null,
+    "value-no-vendor-prefix": null,
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": true,
+    "no-descending-specificity": null,
+    "indentation": null,
+    "rule-empty-line-before":null,
+    "number-leading-zero":null,
+    "no-eol-whitespace":null,
+    "block-opening-brace-space-before":null,
+    "block-opening-brace-newline-after":null,
+    "max-empty-lines":null,
+    "no-missing-end-of-source-newline": null,
+    "no-empty-source":null,
+    "declaration-empty-line-before":null
+  },
+}
