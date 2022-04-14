@@ -20,7 +20,7 @@
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -64,6 +64,7 @@
 /******/ 		};
 /******/ 	}();
 /******/ 	
+
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	!function() {
 /******/ 		__webpack_require__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
