@@ -1,7 +1,11 @@
 (self["webpackChunkv2"] = self["webpackChunkv2"] || []).push([[179],{
 
 /***/ 579:
+/***/ (function() {
 
+"use strict";
+// CSS
+ //import 'bootstrap/dist/css/bootstrap.min.css';
 
 /***/ }),
 
@@ -28,6 +32,8 @@ var checkTest = document.getElementById("mandarin");
 var changeEng = document.getElementById("english");
 changeEng.checked = true;
 
+checkTest.onclick = function (squiz) {
+  debugger;
 
   if (changeEng.checked == true) {
     changeEng.checked = false;
@@ -46,7 +52,11 @@ changeEng.checked = true;
         if (mandarin[i].lang == "ch") {
           mandarin[i].hidden = false;
         }
+      }
 
+      for (var _i = 0; _i < english.length; _i++) {
+        if (english[_i].lang == "en") {
+          english[_i].hidden = true;
         }
       }
     }
@@ -55,6 +65,11 @@ changeEng.checked = true;
   }
 };
 
+changeEng.onclick = function (squiz) {
+  checkTest.checked = false;
+
+  if (changeEng.checked == true) {
+    squiz.language = checkTest.value;
 
     if (squiz.language == "Mandarin") {
       var mandarin = document.querySelectorAll(".mandarin");
@@ -116,7 +131,9 @@ function fadeIn() {
       elem.classList.remove("inView");
     }
   }
+}
 
+fadeIn();
 
 /***/ })
 
