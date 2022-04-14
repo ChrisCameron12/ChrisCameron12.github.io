@@ -36,7 +36,9 @@ var checkTest = document.getElementById("mandarin");
 var changeEng = document.getElementById("english");
 changeEng.checked = true;
 
-checkTest.onclick = function () {
+checkTest.onclick = function (squiz) {
+  debugger;
+
   if (changeEng.checked == true) {
     changeEng.checked = false;
   }
@@ -54,9 +56,11 @@ checkTest.onclick = function () {
         if (mandarin[i].lang == "ch") {
           mandarin[i].hidden = false;
         }
+      }
 
-        if (english[i].lang == "en") {
-          english[i].hidden = true;
+      for (var _i = 0; _i < english.length; _i++) {
+        if (english[_i].lang == "en") {
+          english[_i].hidden = true;
         }
       }
     }
@@ -65,10 +69,12 @@ checkTest.onclick = function () {
   }
 };
 
-changeEng.onclick = function () {
+changeEng.onclick = function (squiz) {
   checkTest.checked = false;
 
   if (changeEng.checked == true) {
+    squiz.language = checkTest.value;
+
     if (squiz.language == "Mandarin") {
       var mandarin = document.querySelectorAll(".mandarin");
       var english = document.querySelectorAll(".english");
@@ -129,54 +135,7 @@ function fadeIn() {
       elem.classList.remove("inView");
     }
   }
-} //when user clicks image//
-
-
-window.onload = function () {
-  document.addEventListener('click', function (event) {
-    if (event.target.matches('.modal-open')) {
-      openImageGallery(event);
-    }
-
-    if (event.target.matches('.close')) {
-      var modal = document.getElementById("myModal");
-      modal.style.display = "none";
-    }
-  }, false);
-}; // When the user clicks anywhere outside of the modal, close it
-
-
-window.onclick = function (event) {
-  var modal = document.getElementById("myModal");
-
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-};
-
-function openImageGallery(event) {
-  //const lightboxImages = document.querySelectorAll('.image-modal-content img');
-  var modal = document.getElementById("myModal");
-  modal.style.display = "block";
-
-  var modalElement = function modalElement(element) {
-    return document.querySelector(".imgmodal ".concat(element));
-  };
-
-  modalElement('img').src = event.target.src;
-} // Get the <span> element that closes the modal
-
-
-var span = document.getElementsByClassName("close")[0]; // When the user clicks on <span> (x), close the modal
-
-span.onclick = function () {
-  modal.style.display = "none";
-}; // dom level event (good practice)
-// let btn = document.querySelector('#btn');
-// btn.onclick = function() {
-//     alert('Clicked!');
-// };
-
+}
 
 fadeIn();
 
