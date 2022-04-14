@@ -11,7 +11,7 @@
 
   //hide all mandarin text by default//
   const siteContent = document.querySelectorAll(".mandarin");
-  for(let i = 0; i < siteContent.length; i++) {
+  for (let i = 0; i < siteContent.length; i++) {
     siteContent[i].hidden = true;
   }
 
@@ -23,62 +23,63 @@ const changeEng = document.getElementById("english");
 changeEng.checked = true;
 
 
-checkTest.onclick = function() {
-  if(changeEng.checked == true){
+checkTest.onclick = function (squiz) {
+  debugger;
+  if (changeEng.checked == true) {
     changeEng.checked = false
   };
-  if(checkTest.checked == true) {
+  if (checkTest.checked == true) {
     squiz.language = checkTest.value;
-    
-    if(squiz.language == "Mandarin") {
+
+    if (squiz.language == "Mandarin") {
 
       const mandarin = document.querySelectorAll(".mandarin");
       const english = document.querySelectorAll(".english");
-      for(let i = 0; i < mandarin.length; i++) {
-        if(mandarin[i].lang == "ch") {
+      for (let i = 0; i < mandarin.length; i++) {
+        if (mandarin[i].lang == "ch") {
           mandarin[i].hidden = false;
         }
-        if(english[i].lang == "en") {
+      }
+      for (let i = 0; i < english.length; i++) {
+        if (english[i].lang == "en") {
           english[i].hidden = true;
         }
-
       }
-      
     };
-   
+
   }
 };
 
-changeEng.onclick = function(){
+changeEng.onclick = function (squiz) {
+
   checkTest.checked = false;
-  if(changeEng.checked == true) {
-    
-    if(squiz.language == "Mandarin") {
+  if (changeEng.checked == true) {
+    squiz.language = checkTest.value;
+    if (squiz.language == "Mandarin") {
       const mandarin = document.querySelectorAll(".mandarin");
       const english = document.querySelectorAll(".english");
-      for(let i = 0; i < english.length; i++) {
-        if(english[i].lang == "en") {
+      for (let i = 0; i < english.length; i++) {
+        if (english[i].lang == "en") {
           english[i].hidden = false;
         }
-        if(mandarin[i].lang == "ch") {
+
+        if (mandarin[i].lang == "ch") {
+
           mandarin[i].hidden = true;
         }
-  
+
       }
     }
   }
-  
+
 }
 
 //coundown//
 const countDownDate = new Date("3 Dec, 2022 15:00:00").getTime();
 
 const x = setInterval(function () {
-
   const now = new Date().getTime();
-
   const distance = countDownDate - now;
-
   const days = Math.floor(distance / (1000 * 60 * 60 * 24));
   const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -99,12 +100,10 @@ document.getElementById("mobile-nav-links").addEventListener('click', closeSideN
 
 function openSideNav() {
   document.getElementById("sidenav").style.width = "100%";
-
- 
 }
+
 function closeSideNav() {
   document.getElementById("sidenav").style.width = "0%";
-
 }
 
 //fade-in on scroll//
@@ -121,64 +120,5 @@ function fadeIn() {
     }
   }
 }
-
-//when user clicks image//
-window.onload = function () {
-  document.addEventListener('click', function (event) {
-
-    if (event.target.matches('.modal-open')) {
-     
-      openImageGallery(event)
-    }
-
-    if (event.target.matches('.close')) {
-      var modal = document.getElementById("myModal");
-      modal.style.display = "none";
-    }
-
-  }, false);
-
-
-
-
-}
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-
-  var modal = document.getElementById("myModal");
-  if (event.target == modal) {
-
-    modal.style.display = "none";
-  }
-}
-
-function openImageGallery(event) {
-
-  //const lightboxImages = document.querySelectorAll('.image-modal-content img');
-  var modal = document.getElementById("myModal");
-  modal.style.display = "block";
-  const modalElement = element =>
-    document.querySelector(`.imgmodal ${element}`);
-
-  modalElement('img').src = event.target.src;
-
-}
-
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function () {
-  modal.style.display = "none";
-}
-
-
-// dom level event (good practice)
-// let btn = document.querySelector('#btn');
-
-// btn.onclick = function() {
-//     alert('Clicked!');
-// };
 
 fadeIn();
